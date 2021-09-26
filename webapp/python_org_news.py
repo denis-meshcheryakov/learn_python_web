@@ -39,3 +39,4 @@ def save_news(title, url, published):
         news_news = News(title=title, url=url, published=published)
         db.session.add(news_news)
         db.session.commit()
+        
