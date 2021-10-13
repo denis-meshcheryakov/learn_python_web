@@ -21,7 +21,6 @@ def get_python_news():
     if html:
         soup = BeautifulSoup(html, 'html.parser')
         all_news = soup.find('ul', class_='list-recent-posts').find_all('li')
-        result_news = []
         for news in all_news:
             title = news.find('a').text
             url = news.find('a')['href']
@@ -32,6 +31,7 @@ def get_python_news():
                 published = datetime.now()
             save_news(title, url, published)
 
+
 def save_news(title, url, published):
     news_exist = News.query.filter(News.url == url).count()
     print(news_exist)
@@ -39,4 +39,3 @@ def save_news(title, url, published):
         news_news = News(title=title, url=url, published=published)
         db.session.add(news_news)
         db.session.commit()
-        

@@ -28,4 +28,4 @@ def weathr_by_city(city_name):
 
 
 if __name__ == '__main__':
-    print(wether = weathr_by_city('Lipetsk,Russia'))
+    print(wether=weathr_by_city('Lipetsk,Russia'))
