@@ -2,7 +2,7 @@ from flask import current_app
 import requests
 
 
-def weathr_by_city(city_name):
+def weather_by_city(city_name):
     weather_url = current_app.config['WEATER_URL']
     params = {
         'key': current_app.config['WEATER_API_KEY'],
@@ -28,4 +28,4 @@ def weathr_by_city(city_name):
 
 
 if __name__ == '__main__':
-    print(wether=weathr_by_city('Lipetsk,Russia'))
+    print(wether=weather_by_city('Lipetsk,Russia'))
