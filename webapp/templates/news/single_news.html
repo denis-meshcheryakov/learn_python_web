@@ -4,7 +4,22 @@
   <div class="row">
   <div class="col-8 news-content">
     {{ news.text|safe }}
-  </div>
+    {% if news.comments %}
+      <h3>Коментарии:</h3>
+      {% for comment in news.comments %}
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{ comment.text }}</p>
+          <p class="card-text">
+            <small>Опубликовано: {{ comment.created.strftime('%d.%m.%Y') }} | 
+              Автор: {{ comment.user.username }}
+            </small>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    </div>
   <div class="col-4">
       <h2>Другие новости</h2>
   </div>
