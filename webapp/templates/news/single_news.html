@@ -19,6 +19,14 @@
       </div>
       {% endfor %}
     {% endif %}
+    <form action="{{ url_for('news.add_comment') }}" method="POST">
+      {{ comment_form.hidden_tag() }}
+      <div class="form-group">
+        {{ comment_form.comment_text.label }}
+        {{ comment_form.comment_text() }}
+      </div>
+      {{ comment_form.submit() }}
+    </form>
     </div>
   <div class="col-4">
       <h2>Другие новости</h2>
